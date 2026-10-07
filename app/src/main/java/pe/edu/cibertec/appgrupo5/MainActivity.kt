@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
 
     private val listaUsuarios = listOf(
-        Usuario("202506387", "46839109")
+        Usuario("i202506387", "46839109"),
+        Usuario("i202505177","71565888")
 
     )
 

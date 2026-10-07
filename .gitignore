@@ -27,6 +27,15 @@ replay_pid*
 .kotlin/
 .gradle/
 .idea/
-build/
+
+# Local configuration
 local.properties
+
+# Gradle
+.gradle/
+build/
+**/build/
+!gradle-wrapper.jar
 gradle/
+gradle/libs.versions.toml
+local.properties
