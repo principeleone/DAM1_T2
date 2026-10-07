@@ -5,55 +5,86 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import pe.edu.cibertec.appgrupo5.databinding.FragmentPregunta2Binding
+import java.util.Locale
+import kotlin.toString
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class Pregunta2Fragment : Fragment(), View.OnClickListener {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Pregunta2Fragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Pregunta2Fragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentPregunta2Binding?=null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pregunta2, container, false)
+        _binding = FragmentPregunta2Binding.inflate(
+            inflater,
+            container,
+            false
+        )
+        //return inflater.inflate(R.layout.fragment_pregunta2, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Pregunta2Fragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Pregunta2Fragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnCalcularPreg4.setOnClickListener(this)
     }
+
+    override fun onClick(p0: View?) {
+        when (p0?.id) {
+            R.id.btnCalcularPreg4 -> {
+                calcularDemurrage()
+            }
+        }
+    }
+
+    fun calcularDemurrage() {
+
+        val textoDias = binding.edtDias.text.toString().trim()
+
+        if (textoDias.isBlank()) {
+            Toast.makeText(
+                requireContext(),
+                "Ingrese los días transcurridos",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
+        val dias = textoDias.toIntOrNull()
+
+        if (dias == null || dias < 0) {
+            Toast.makeText(
+                requireContext(),
+                "Ingrese una cantidad de días válida",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            return
+        }
+
+        if (dias <= 7) {
+            binding.txtResultadoPreg4.text =
+                "Contenedor retornado dentro de los días libres."
+        } else {
+
+            val diasMora = dias - 7
+            val demurrage = 200.00 + (diasMora * 75.00)
+            binding.txtResultadoPreg4.text = String.format(
+                Locale.US,
+                "Días totales transcurridos: %d\n" +
+                        "Días de mora: %d\n" +
+                        "Monto de demurrage liquidado: S/ %.2f",
+                dias,
+                diasMora,
+                demurrage
+            )
+        }
+    }
+
 }
