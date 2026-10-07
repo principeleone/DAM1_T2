@@ -16,8 +16,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val listaUsuarios = listOf(
         Usuario("i202506387", "46839109"),
-        Usuario("i202505177","71565888")
-
+        Usuario("i202505177","71565888"),
+        Usuario("i202504823","71918079"),
+        Usuario("i202502809","60506435"),
+        Usuario("i202504215","70874651")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
