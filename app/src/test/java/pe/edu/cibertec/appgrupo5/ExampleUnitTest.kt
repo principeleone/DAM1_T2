@@ -1,4 +1,4 @@
-package pe.edu.cibertec.dam1_t2
+package pe.edu.cibertec.appgrupo5
 
 import org.junit.Test
 

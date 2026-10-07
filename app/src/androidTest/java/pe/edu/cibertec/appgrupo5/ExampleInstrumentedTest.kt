@@ -1,4 +1,4 @@
-package pe.edu.cibertec.dam1_t2
+package pe.edu.cibertec.appgrupo5
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("pe.edu.cibertec.dam1_t2", appContext.packageName)
+        assertEquals("pe.edu.cibertec.appgrupo5", appContext.packageName)
     }
 }

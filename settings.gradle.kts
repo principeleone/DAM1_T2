@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DAM1_T2"
+rootProject.name = "appGrupo5"
 include(":app")
  
