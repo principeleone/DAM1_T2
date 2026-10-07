@@ -5,55 +5,58 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import pe.edu.cibertec.appgrupo5.adapter.PaisAdapter
+import pe.edu.cibertec.appgrupo5.databinding.FragmentPregunta3Binding
+import pe.edu.cibertec.appgrupo5.model.Pais
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Pregunta3Fragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Pregunta3Fragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentPregunta3Binding?=null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pregunta3, container, false)
+        _binding = FragmentPregunta3Binding.inflate(
+            inflater,
+            container,
+            false
+        )
+        //return inflater.inflate(R.layout.fragment_pregunta2, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Pregunta3Fragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Pregunta3Fragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+        binding.rvPregunta5.layoutManager= LinearLayoutManager(view.context)
+        binding.rvPregunta5.adapter= PaisAdapter(obtenerPais())
+    }
+
+
+    fun obtenerPais(): List<Pais>{
+        return listOf(
+            Pais("España", "https://picsum.photos/seed/espana/800/450"),
+            Pais("Francia", "https://picsum.photos/seed/francia/800/450"),
+            Pais("Italia", "https://picsum.photos/seed/italia/800/450"),
+            Pais("Alemania", "https://picsum.photos/seed/alemania/800/450"),
+            Pais("Portugal", "https://picsum.photos/seed/portugal/800/450"),
+            Pais("Países Bajos", "https://picsum.photos/seed/paisesbajos/800/450"),
+            Pais("Bélgica", "https://picsum.photos/seed/belgica/800/450"),
+            Pais("Suiza", "https://picsum.photos/seed/suiza/800/450"),
+            Pais("Austria", "https://picsum.photos/seed/austria/800/450"),
+            Pais("Grecia", "https://picsum.photos/seed/grecia/800/450"),
+            Pais("Suecia", "https://picsum.photos/seed/suecia/800/450"),
+            Pais("Noruega", "https://picsum.photos/seed/noruega/800/450"),
+            Pais("Finlandia", "https://picsum.photos/seed/finlandia/800/450"),
+            Pais("Dinamarca", "https://picsum.photos/seed/dinamarca/800/450"),
+            Pais("Polonia", "https://picsum.photos/seed/polonia/800/450"),
+            Pais("Chequia", "https://picsum.photos/seed/chequia/800/450"),
+            Pais("Irlanda", "https://picsum.photos/seed/irlanda/800/450"),
+            Pais("Croacia", "https://picsum.photos/seed/croacia/800/450"),
+            Pais("Islandia", "https://picsum.photos/seed/islandia/800/450"),
+            Pais("Rumanía", "https://picsum.photos/seed/rumania/800/450"))
     }
 }
