@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/pregunta1Fragment"
+        android:icon="@drawable/round_airport_shuttle_24"
+        android:title="@string/textpregunta1"/>
+    <item android:id="@+id/pregunta2Fragment"
+        android:icon="@drawable/round_assignment_return_24"
+        android:title="@string/textpregunta2"/>
+    <item android:id="@+id/pregunta3Fragment"
+        android:icon="@drawable/round_burst_mode_24"
+        android:title="@string/textpregunta3"/>
+    <item android:id="@+id/pregunta4Fragment"
+        android:icon="@drawable/round_comment_24"
+        android:title="@string/textpregunta4"/>
+
+</menu>
