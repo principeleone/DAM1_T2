@@ -32,8 +32,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    buildFeatures {
-        viewBinding = true
+    viewBinding{
+        enable=true
     }
 }
 
@@ -42,9 +42,11 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.material)
+
     implementation(libs.androidx.recyclerview)
-    implementation(libs.glide)
+    implementation(libs.material)
+
+    implementation(libs.glide) //  implementation("com.github.bumptech.glide:glide:5.0.9")
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 

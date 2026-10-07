@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/pregunta3Fragment"
-        android:name="pe.edu.cibertec.appgrupo5.Pregunta3Fragment"
+        android:name="pe.edu.cibertec.appgrupo5.`Pregunta3Fragment.kt`"
         android:label="Pregunta 3"
         tools:layout="@layout/fragment_pregunta3" />
 
